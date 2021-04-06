@@ -9,7 +9,7 @@ function App() {
         <small>
           <a
             className="Github-link"
-            href="https://github.com/rbanwell87/Final-Project"
+            href="https://github.com/rbanwell87/react-github-netlify/settings"
             target="_blank"
             rel="noopener noreferrer"
           >
