@@ -8,11 +8,12 @@ import Footer from "./Footer";
 export default function App() {
   return (
     <div className="App">
-      <h1>React Weather App</h1>
       <Search />
       <City />
       <Temperature />
+
       <Forecast />
+      <hr />
       <br />
       <Footer />
     </div>

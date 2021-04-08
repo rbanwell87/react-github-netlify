@@ -1,0 +1,13 @@
+ul {
+  text-align: center;
+  list-style-type: none;
+}
+
+.CurrentTemperature {
+  text-align: center;
+  font-size: 72px;
+}
+.units {
+  text-align: center;
+  font-size: 24px;
+}
