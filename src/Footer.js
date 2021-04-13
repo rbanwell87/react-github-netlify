@@ -13,7 +13,14 @@ export default function Footer() {
         >
           Open-source code
         </a>{" "}
-        by Robin Banwell
+        by{" "}
+        <a
+          href="https://www.linkedin.com/in/robin-banwell-15b67762/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Robin Banwell
+        </a>
       </small>
     </div>
   );
