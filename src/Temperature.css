@@ -1,4 +1,13 @@
-ul {
+.Temperature {
+  text-align: center;
+  padding: 10px;
+  max-width: 400px;
+  border: 1px solid #f59090;
+  background-color: #393f3f5e;
+  border-radius: 8px;
+  margin: auto;
+}
+.Temperature ul {
   text-align: center;
   list-style-type: none;
 }
@@ -7,7 +16,9 @@ ul {
   text-align: center;
   font-size: 72px;
 }
-.units {
+.Temperature .units {
   text-align: center;
-  font-size: 24px;
+  font-size: 18px;
+  position: relative;
+  top: -32px;
 }

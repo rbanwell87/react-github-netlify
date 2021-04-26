@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import City from "./City";
 import Search from "./Search";
