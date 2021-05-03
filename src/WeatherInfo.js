@@ -14,11 +14,7 @@ export default function WeatherInfo(props) {
           </strong>
         </div>
         <div className="CurrentTemperature">
-          <img
-            src="http://openweathermap.org/img/wn/04d@2x.png"
-            alt="weather-icon"
-            id="icon"
-          />
+          <img src={props.data.icon} alt="weather-icon" id="icon" />
           <span id="temperature">{Math.round(props.data.temperature)}</span>
           <span className="units">
             <a href="https://njh7z.csb.app/?#" id="celcius-link">
