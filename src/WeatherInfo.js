@@ -1,15 +1,15 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 
-export default function WeatherInfo() {
+export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
       <div className="Temperature">
         <div className="City">
-          <h1>Toronto</h1>
+          <h1>{props.data.city}</h1>
           <strong>
             <h4 id="date">
-              <FormattedDate date={weatherData.date} />
+              <FormattedDate date={props.data.date} />
             </h4>
           </strong>
         </div>
@@ -19,7 +19,7 @@ export default function WeatherInfo() {
             alt="weather-icon"
             id="icon"
           />
-          <span id="temperature">{Math.round(weatherData.temperature)}</span>
+          <span id="temperature">{Math.round(props.data.temperature)}</span>
           <span className="units">
             <a href="https://njh7z.csb.app/?#" id="celcius-link">
               °C
@@ -34,13 +34,13 @@ export default function WeatherInfo() {
         <ul>
           <strong>
             <li>
-              <span id="description">{weatherData.description}</span>
+              <span id="description">{props.data.description}</span>
             </li>
             <li>
-              Humidity: <span id="humidity">{weatherData.humidity}</span>%
+              Humidity: <span id="humidity">{props.data.humidity}</span>%
             </li>
             <li>
-              Wind: <span id="wind">{weatherData.wind}</span> km/h
+              Wind: <span id="wind">{props.data.wind}</span> km/h
             </li>
           </strong>
         </ul>
