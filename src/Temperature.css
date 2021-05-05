@@ -12,15 +12,19 @@
   list-style-type: none;
 }
 
-.CurrentTemperature {
+.WeatherTemperature {
   text-align: center;
-  font-size: 72px;
+  font-size: 28px;
 }
-.Temperature .units {
+.Temperature {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.WeatherTemperature .unit {
   text-align: center;
-  font-size: 18px;
+  font-size: 14px;
   position: relative;
-  top: -32px;
+  top: -10px;
 }
 .Temperature canvas {
   margin-right: 10 px;

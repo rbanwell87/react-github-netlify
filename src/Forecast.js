@@ -1,66 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import ForecastDay from "./ForecastDay";
 import "./Forecast.css";
+import axios from "axios";
 
-export default function Forecast() {
-  return (
-    <div className="FiveDayForecast">
-      <p>
-        <strong>5 Day Forecast</strong>
-      </p>
-      <hr />
-      <div className="container">
+export default function Forecast(props) {
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.coordinates]);
+
+  function handleResponse(response) {
+    setForecast(response.data.daily);
+    setLoaded(true);
+  }
+
+  if (loaded) {
+    return (
+      <div className="Forecast">
         <div className="row">
-          <div className="col-2">Monday</div>
-          <div className="col-2">Tuesday</div>
-          <div className="col-2">Wednesday</div>
-          <div clasName="col-2">Thursday</div>
-          <div className="col-2">Friday</div>
-          <div className="col-2">Saturday</div>
-
-          <div className="col-2">
-            <img
-              src="http://openweathermap.org/img/wn/04d@2x.png"
-              alt="weathers-icon"
-              id="icon"
-            />
-          </div>
-          <div className="col-2">
-            <img
-              src="http://openweathermap.org/img/wn/04d@2x.png"
-              alt="weathers-icon"
-              id="icon"
-            />
-          </div>
-          <div className="col-2">
-            <img
-              src="http://openweathermap.org/img/wn/04d@2x.png"
-              alt="weathers-icon"
-              id="icon"
-            />
-          </div>
-          <div className="col-2">
-            <img
-              src="http://openweathermap.org/img/wn/04d@2x.png"
-              alt="weathers-icon"
-              id="icon"
-            />
-          </div>
-          <div className="col-2">
-            <img
-              src="http://openweathermap.org/img/wn/04d@2x.png"
-              alt="weathers-icon"
-              id="icon"
-            />
-          </div>
-          <div className="col-2">
-            <img
-              src="http://openweathermap.org/img/wn/04d@2x.png"
-              alt="weathers-icon"
-              id="icon"
-            />
-          </div>
+          {forecast.map(function (dailyForecast, index) {
+            if (index > 0) {
+              return (
+                <div className="col" ket={index}>
+                  <ForecastDay data={dailyForecast} />
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    let apiKey = "567bc6c3d13f22fc404618e54d8ecf08";
+    let longitude = props.coordinates.lon;
+    let latitude = props.coordinates.lat;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleResponse);
+
+    return null;
+  }
 }
